@@ -6,19 +6,7 @@ bool ExampleFeature::Setup()
 {
 	Localization::AddToLocale("ENG", std::initializer_list<std::pair<size_t, std::string>>{
 		{ "EXAMPLE_FEATURE"Hashed, "Example Feature" },
-		{ "EXAMPLE_FEATURE_HW"Hashed, "Hello, World!" },
-		{ "EXAMPLE_FEATURE_SLIDER"Hashed, "Ex Slider" },
-		{ "EXAMPLE_COLORPICKER"Hashed, "Example Color Picker" },
-	});
-
-	Localization::AddToLocale("GER", std::initializer_list<std::pair<size_t, std::string>>{
-		{ "EXAMPLE_FEATURE"Hashed, "Beispielfunktion" },
-		{ "EXAMPLE_FEATURE_HW"Hashed, "Hallo Welt!" }
-	});
-
-	Localization::AddToLocale("POL", std::initializer_list<std::pair<size_t, std::string>>{
-		{ "EXAMPLE_FEATURE"Hashed, "Przykładowa Funkcja" },
-		{ "EXAMPLE_FEATURE_HW"Hashed, "Cześć Świecie!" }
+		{ "EXAMPLE_FEATURE_CHECKBOX"Hashed, "Enable" },
 	});
 
 	LogDebugHere("Feature: ExampleFeature Initialized");
@@ -33,7 +21,35 @@ void ExampleFeature::HandleKeys() {}
 
 void ExampleFeature::Render() {}
 
-void ExampleFeature::Run() {}
+void ExampleFeature::Run()
+{
+	if (!GuiCheckbox.get()->GetValue())
+		return;
+
+	Unreal* pUnreal = Framework::unreal.get();
+
+	CG::UWorld* pGWorld = CG::UWorld::GetWorld();
+	if (!IsValidObjectPtr(pGWorld))
+		return;
+
+	CG::UGameInstance* pGameInstance = pGWorld->OwningGameInstance;
+	if (!IsValidObjectPtr(pGameInstance))
+		return;
+
+	CG::ULocalPlayer* pLocalPlayer = pGameInstance->LocalPlayers[0];
+	if (!IsValidObjectPtr(pLocalPlayer))
+		return;
+
+	CG::APlayerController* pPlayerController = pLocalPlayer->PlayerController;
+	if (!IsValidObjectPtr(pPlayerController))
+		return;
+
+	CG::APawn* pAckPawn = pPlayerController->AcknowledgedPawn;
+	if (!IsValidObjectPtr(pAckPawn))
+		return;
+
+	LogDebugStreamHere("Acknowledged Pawn: " << pAckPawn);
+}
 
 void ExampleFeature::HandleMenu()
 {
@@ -55,16 +71,8 @@ void ExampleFeature::HandleMenu()
 		});
 
 		GuiSection->AddElement(GuiCheckbox.get());
-
-		GuiCheckbox->AddElement(GuiEnabledText.get());
-		GuiCheckbox->AddElement(GuiEnabledSlider.get());
-
-		GuiSection->AddElement(GuiColorPickerLabel.get());
-		GuiSection->AddElement(GuiColorPicker.get());
 	});
 
 	if (!GuiSection->HasParent())
 		Framework::menu->AddElement(GuiSection.get());
-
-	GuiCheckbox->SetChildrenVisible(GuiCheckbox->GetValue());
 }

@@ -1,8 +1,13 @@
 #pragma once
 #include "pch.h"
+
+#ifdef DUMPER_7
+#include "BasicTypes.h"
+#endif
+
 #if FRAMEWORK_UNREAL // Not sure if this is needed but it's here anyway
 
-bool FrameworkUnrealInit()
+inline bool FrameworkUnrealInit()
 {
 #ifndef DUMPER_7
 	if (!CG::InitSdk())
@@ -24,6 +29,7 @@ bool FrameworkUnrealInit()
 		continue;
 #endif // DUMPER_7
 
+	return true;
 }
 
 #ifndef DUMPER_7
@@ -120,20 +126,26 @@ namespace FNames
 
 	inline void Initialize()
 	{
-		Utils::LogDebug(Utils::GetLocation(CurrentLoc), (std::stringstream() << "GNames: 0x" << CG::FName::GNames).str());
-		Utils::LogDebug(Utils::GetLocation(CurrentLoc), (std::stringstream() << "GNames Count: " << CG::FName::GNames->Count()).str());
+#ifdef DUMPER_7
+		CG::FNamePool* GNames = reinterpret_cast<CG::FNamePool*>(CG::InSDKUtils::GetImageBase() + CG::Offsets::GNames);
+#else
+		CG::FNamePool* GNames = CG::FName::GNames;
+#endif
+
+		LogDebugStreamHere("GNames: 0x" << GNames);
+		LogDebugStreamHere("GNames Count: " << GNames->Count());
 
 		size_t iGNameSize = 0;
 		int lastBlock = 0;
-		uintptr_t nextFNameAddress = reinterpret_cast<uintptr_t>(CG::FName::GNames->Allocator.Blocks[0]);
+		uintptr_t nextFNameAddress = reinterpret_cast<uintptr_t>(GNames->Allocator.Blocks[0]);
 
 		while (1) {
 
 		RePlay:
-			int32_t nextFNameComparisonId = MAKELONG((uint16_t)((nextFNameAddress - reinterpret_cast<uintptr_t>(CG::FName::GNames->Allocator.Blocks[lastBlock])) / 2), (uint16_t)lastBlock);
+			int32_t nextFNameComparisonId = MAKELONG((uint16_t)((nextFNameAddress - reinterpret_cast<uintptr_t>(GNames->Allocator.Blocks[lastBlock])) / 2), (uint16_t)lastBlock);
 			int32_t block = nextFNameComparisonId >> 16;
 			int32_t offset = (uint16_t)nextFNameComparisonId;
-			int32_t offsetFromBlock = static_cast<int32_t>(nextFNameAddress - reinterpret_cast<uintptr_t>(CG::FName::GNames->Allocator.Blocks[lastBlock]));
+			int32_t offsetFromBlock = static_cast<int32_t>(nextFNameAddress - reinterpret_cast<uintptr_t>(GNames->Allocator.Blocks[lastBlock]));
 
 			// Get entry information
 			const uintptr_t entryOffset = nextFNameAddress;
@@ -155,9 +167,9 @@ namespace FNames
 				nameLength += 1;
 
 			// Block end ?
-			if (offsetFromBlock + toAdd + (nameLength * 2) >= 0xFFFF * CG::FNameEntryAllocator::Stride || nameHeader == 0x00 || block == CG::FName::GNames->Allocator.CurrentBlock && offset >= CG::FName::GNames->Allocator.CurrentByteCursor)
+			if (offsetFromBlock + toAdd + (nameLength * 2) >= 0xFFFF * CG::FNameEntryAllocator::Stride || nameHeader == 0x00 || block == GNames->Allocator.CurrentBlock && offset >= GNames->Allocator.CurrentByteCursor)
 			{
-				nextFNameAddress = reinterpret_cast<uintptr_t>(CG::FName::GNames->Allocator.Blocks[++lastBlock]);
+				nextFNameAddress = reinterpret_cast<uintptr_t>(GNames->Allocator.Blocks[++lastBlock]);
 				goto RePlay;
 			}
 
@@ -176,7 +188,7 @@ namespace FNames
 			}
 
 			// We hit last Name in last Block
-			if (lastBlock > CG::FName::GNames->Allocator.CurrentBlock)
+			if (lastBlock > GNames->Allocator.CurrentBlock)
 				break;
 
 			// Get next name address
@@ -221,7 +233,7 @@ public:
 			ActorList.clear();
 			ActorLock.unlock();
 			return;
-	}
+		}
 #else
 		CG::UWorld* pGWorld = CG::UWorld::GetWorld();
 		if (pGWorld == nullptr) {

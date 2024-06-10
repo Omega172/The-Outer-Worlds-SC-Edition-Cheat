@@ -7576,13 +7576,6 @@ public:
 	struct FVector2D                              Minimum;                                           // 0x0004(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              Snap;                                              // 0x000C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FSizeConstraint) == 0x000001, "Wrong alignment on FSizeConstraint");
-static_assert(sizeof(FSizeConstraint) == 0x000014, "Wrong size on FSizeConstraint");
-static_assert(offsetof(FSizeConstraint, bEnabled) == 0x000000, "Member 'FSizeConstraint::bEnabled' has a wrong offset!");
-static_assert(offsetof(FSizeConstraint, bUseBrushAsMinSize) == 0x000001, "Member 'FSizeConstraint::bUseBrushAsMinSize' has a wrong offset!");
-static_assert(offsetof(FSizeConstraint, bUseSnap) == 0x000002, "Member 'FSizeConstraint::bUseSnap' has a wrong offset!");
-static_assert(offsetof(FSizeConstraint, Minimum) == 0x000004, "Member 'FSizeConstraint::Minimum' has a wrong offset!");
-static_assert(offsetof(FSizeConstraint, Snap) == 0x00000C, "Member 'FSizeConstraint::Snap' has a wrong offset!");
 
 // ScriptStruct Indiana.IndianaTextBlockStyle
 // 0x0010 (0x0288 - 0x0278)
@@ -7789,9 +7782,6 @@ struct FQuestReference final
 public:
 	struct FGuid                                  ID;                                                // 0x0000(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FQuestReference) == 0x000001, "Wrong alignment on FQuestReference");
-static_assert(sizeof(FQuestReference) == 0x000010, "Wrong size on FQuestReference");
-static_assert(offsetof(FQuestReference, ID) == 0x000000, "Member 'FQuestReference::ID' has a wrong offset!");
 
 // ScriptStruct Indiana.QuestStateConditional
 // 0x0014 (0x0014 - 0x0000)
@@ -7804,12 +7794,6 @@ public:
 	bool                                          bDefault;                                          // 0x0012(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_18DD[0x1];                                     // 0x0013(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FQuestStateConditional) == 0x000001, "Wrong alignment on FQuestStateConditional");
-static_assert(sizeof(FQuestStateConditional) == 0x000014, "Wrong size on FQuestStateConditional");
-static_assert(offsetof(FQuestStateConditional, QuestReference) == 0x000000, "Member 'FQuestStateConditional::QuestReference' has a wrong offset!");
-static_assert(offsetof(FQuestStateConditional, Operator) == 0x000010, "Member 'FQuestStateConditional::Operator' has a wrong offset!");
-static_assert(offsetof(FQuestStateConditional, ComparisonState) == 0x000011, "Member 'FQuestStateConditional::ComparisonState' has a wrong offset!");
-static_assert(offsetof(FQuestStateConditional, bDefault) == 0x000012, "Member 'FQuestStateConditional::bDefault' has a wrong offset!");
 
 // ScriptStruct Indiana.GlobalVariable
 // 0x0010 (0x0010 - 0x0000)
@@ -7818,9 +7802,6 @@ struct FGlobalVariable final
 public:
 	class FString                                 DisplayName;                                       // 0x0000(0x0010)(Edit, ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 };
-static_assert(alignof(FGlobalVariable) == 0x000001, "Wrong alignment on FGlobalVariable");
-static_assert(sizeof(FGlobalVariable) == 0x000010, "Wrong size on FGlobalVariable");
-static_assert(offsetof(FGlobalVariable, DisplayName) == 0x000000, "Member 'FGlobalVariable::DisplayName' has a wrong offset!");
 
 // ScriptStruct Indiana.GlobalVariableConditional
 // 0x0030 (0x0030 - 0x0000)
@@ -7835,13 +7816,6 @@ public:
 	bool                                          bDefault;                                          // 0x002C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_18DF[0x3];                                     // 0x002D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FGlobalVariableConditional) == 0x000001, "Wrong alignment on FGlobalVariableConditional");
-static_assert(sizeof(FGlobalVariableConditional) == 0x000030, "Wrong size on FGlobalVariableConditional");
-static_assert(offsetof(FGlobalVariableConditional, GlobalVariable) == 0x000000, "Member 'FGlobalVariableConditional::GlobalVariable' has a wrong offset!");
-static_assert(offsetof(FGlobalVariableConditional, Operator) == 0x000010, "Member 'FGlobalVariableConditional::Operator' has a wrong offset!");
-static_assert(offsetof(FGlobalVariableConditional, OtherGlobalVariable) == 0x000018, "Member 'FGlobalVariableConditional::OtherGlobalVariable' has a wrong offset!");
-static_assert(offsetof(FGlobalVariableConditional, Value) == 0x000028, "Member 'FGlobalVariableConditional::Value' has a wrong offset!");
-static_assert(offsetof(FGlobalVariableConditional, bDefault) == 0x00002C, "Member 'FGlobalVariableConditional::bDefault' has a wrong offset!");
 
 // ScriptStruct Indiana.PCGenderConditional
 // 0x0003 (0x0003 - 0x0000)
@@ -7886,15 +7860,6 @@ public:
 	struct FDLCInstalledConditional               DLCInstalledCondition;                             // 0x0053(0x0002)(Edit, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_18E1[0x3];                                     // 0x0055(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FLogicalStatement) == 0x000001, "Wrong alignment on FLogicalStatement");
-static_assert(sizeof(FLogicalStatement) == 0x000058, "Wrong size on FLogicalStatement");
-static_assert(offsetof(FLogicalStatement, Operator) == 0x000000, "Member 'FLogicalStatement::Operator' has a wrong offset!");
-static_assert(offsetof(FLogicalStatement, ConditionalType) == 0x000001, "Member 'FLogicalStatement::ConditionalType' has a wrong offset!");
-static_assert(offsetof(FLogicalStatement, Condition) == 0x000008, "Member 'FLogicalStatement::Condition' has a wrong offset!");
-static_assert(offsetof(FLogicalStatement, QuestStateCondition) == 0x000038, "Member 'FLogicalStatement::QuestStateCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalStatement, CompanionStateCondition) == 0x00004C, "Member 'FLogicalStatement::CompanionStateCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalStatement, PCGenderCondition) == 0x000050, "Member 'FLogicalStatement::PCGenderCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalStatement, DLCInstalledCondition) == 0x000053, "Member 'FLogicalStatement::DLCInstalledCondition' has a wrong offset!");
 
 // ScriptStruct Indiana.LogicalExpression
 // 0x0068 (0x0068 - 0x0000)
@@ -7911,15 +7876,6 @@ public:
 	uint8                                         Pad_18E3[0x3];                                     // 0x0055(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FLogicalStatement>              AdditionalConditions;                              // 0x0058(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FLogicalExpression) == 0x000001, "Wrong alignment on FLogicalExpression");
-static_assert(sizeof(FLogicalExpression) == 0x000068, "Wrong size on FLogicalExpression");
-static_assert(offsetof(FLogicalExpression, ConditionalType) == 0x000000, "Member 'FLogicalExpression::ConditionalType' has a wrong offset!");
-static_assert(offsetof(FLogicalExpression, BaseCondition) == 0x000008, "Member 'FLogicalExpression::BaseCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalExpression, BaseQuestStateCondition) == 0x000038, "Member 'FLogicalExpression::BaseQuestStateCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalExpression, BaseCompanionStateCondition) == 0x00004C, "Member 'FLogicalExpression::BaseCompanionStateCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalExpression, BasePCGenderCondition) == 0x000050, "Member 'FLogicalExpression::BasePCGenderCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalExpression, BaseDLCInstalledCondition) == 0x000053, "Member 'FLogicalExpression::BaseDLCInstalledCondition' has a wrong offset!");
-static_assert(offsetof(FLogicalExpression, AdditionalConditions) == 0x000058, "Member 'FLogicalExpression::AdditionalConditions' has a wrong offset!");
 
 // ScriptStruct Indiana.LogicalExpressionGroup
 // 0x0070 (0x0070 - 0x0000)
@@ -7930,10 +7886,6 @@ public:
 	uint8                                         Pad_18E4[0x7];                                     // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FLogicalExpression                     Expression;                                        // 0x0008(0x0068)(Edit, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FLogicalExpressionGroup) == 0x000001, "Wrong alignment on FLogicalExpressionGroup");
-static_assert(sizeof(FLogicalExpressionGroup) == 0x000070, "Wrong size on FLogicalExpressionGroup");
-static_assert(offsetof(FLogicalExpressionGroup, Operator) == 0x000000, "Member 'FLogicalExpressionGroup::Operator' has a wrong offset!");
-static_assert(offsetof(FLogicalExpressionGroup, Expression) == 0x000008, "Member 'FLogicalExpressionGroup::Expression' has a wrong offset!");
 
 // ScriptStruct Indiana.SaveGameDataBehaviorStack
 // 0x0010 (0x0010 - 0x0000)
@@ -8915,30 +8867,6 @@ public:
 	float                                         DamageFalloff;                                     // 0x0064(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FDeathClassOverride>            DeathClassOverrides;                               // 0x0068(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FDamageDescription) == 0x000001, "Wrong alignment on FDamageDescription");
-static_assert(sizeof(FDamageDescription) == 0x000078, "Wrong size on FDamageDescription");
-static_assert(offsetof(FDamageDescription, DamageEventType) == 0x000000, "Member 'FDamageDescription::DamageEventType' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, DamageType) == 0x000008, "Member 'FDamageDescription::DamageType' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, SecondaryDamageType) == 0x000010, "Member 'FDamageDescription::SecondaryDamageType' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, GuaranteedStatusEffects) == 0x000018, "Member 'FDamageDescription::GuaranteedStatusEffects' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, MeleeAttackType) == 0x000028, "Member 'FDamageDescription::MeleeAttackType' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, HitReactionType) == 0x000029, "Member 'FDamageDescription::HitReactionType' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, BaseDamage) == 0x00002C, "Member 'FDamageDescription::BaseDamage' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, DamageRange) == 0x000030, "Member 'FDamageDescription::DamageRange' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, BaseCritChance) == 0x000034, "Member 'FDamageDescription::BaseCritChance' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, CritMultiplier) == 0x000038, "Member 'FDamageDescription::CritMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, StealthMultiplier) == 0x00003C, "Member 'FDamageDescription::StealthMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, GrazeChanceModifier) == 0x000040, "Member 'FDamageDescription::GrazeChanceModifier' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, GrazeMultiplier) == 0x000044, "Member 'FDamageDescription::GrazeMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, DamageResistanceMultiplier) == 0x000048, "Member 'FDamageDescription::DamageResistanceMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, DamageThresholdMultiplier) == 0x00004C, "Member 'FDamageDescription::DamageThresholdMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, PostArmorDamageMultiplier) == 0x000050, "Member 'FDamageDescription::PostArmorDamageMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, ImpulseOverride) == 0x000054, "Member 'FDamageDescription::ImpulseOverride' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, MinimumDamage) == 0x000058, "Member 'FDamageDescription::MinimumDamage' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, InnerRadius) == 0x00005C, "Member 'FDamageDescription::InnerRadius' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, OuterRadius) == 0x000060, "Member 'FDamageDescription::OuterRadius' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, DamageFalloff) == 0x000064, "Member 'FDamageDescription::DamageFalloff' has a wrong offset!");
-static_assert(offsetof(FDamageDescription, DeathClassOverrides) == 0x000068, "Member 'FDamageDescription::DeathClassOverrides' has a wrong offset!");
 
 // ScriptStruct Indiana.IndianaDamageEvent
 // 0x0050 (0x0050 - 0x0000)
@@ -9304,15 +9232,6 @@ public:
 	uint8                                         TutorialSortOrder;                                 // 0x0072(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_192E[0x5];                                     // 0x0073(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FTutorialBaseEventData) == 0x000001, "Wrong alignment on FTutorialBaseEventData");
-static_assert(sizeof(FTutorialBaseEventData) == 0x000078, "Wrong size on FTutorialBaseEventData");
-static_assert(offsetof(FTutorialBaseEventData, bIsGamepadTutorial) == 0x000000, "Member 'FTutorialBaseEventData::bIsGamepadTutorial' has a wrong offset!");
-static_assert(offsetof(FTutorialBaseEventData, MouseAndKeyboardTutorialEvent) == 0x000001, "Member 'FTutorialBaseEventData::MouseAndKeyboardTutorialEvent' has a wrong offset!");
-static_assert(offsetof(FTutorialBaseEventData, GamepadTutorialEvent) == 0x000002, "Member 'FTutorialBaseEventData::GamepadTutorialEvent' has a wrong offset!");
-static_assert(offsetof(FTutorialBaseEventData, Conditional) == 0x000008, "Member 'FTutorialBaseEventData::Conditional' has a wrong offset!");
-static_assert(offsetof(FTutorialBaseEventData, Category) == 0x000070, "Member 'FTutorialBaseEventData::Category' has a wrong offset!");
-static_assert(offsetof(FTutorialBaseEventData, bNeverDisplayInJournal) == 0x000071, "Member 'FTutorialBaseEventData::bNeverDisplayInJournal' has a wrong offset!");
-static_assert(offsetof(FTutorialBaseEventData, TutorialSortOrder) == 0x000072, "Member 'FTutorialBaseEventData::TutorialSortOrder' has a wrong offset!");
 
 // ScriptStruct Indiana.AnimNode_EyeLidLimitEntry
 // 0x005C (0x005C - 0x0000)
@@ -11927,10 +11846,6 @@ public:
 	struct FVector                                Companion1IdealLocation;                           // 0x0000(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Companion2IdealLocation;                           // 0x000C(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FConversationCompanionConfig) == 0x000001, "Wrong alignment on FConversationCompanionConfig");
-static_assert(sizeof(FConversationCompanionConfig) == 0x000018, "Wrong size on FConversationCompanionConfig");
-static_assert(offsetof(FConversationCompanionConfig, Companion1IdealLocation) == 0x000000, "Member 'FConversationCompanionConfig::Companion1IdealLocation' has a wrong offset!");
-static_assert(offsetof(FConversationCompanionConfig, Companion2IdealLocation) == 0x00000C, "Member 'FConversationCompanionConfig::Companion2IdealLocation' has a wrong offset!");
 
 // ScriptStruct Indiana.LoadingImageContainer
 // 0x0010 (0x0010 - 0x0000)
@@ -12358,12 +12273,6 @@ public:
 	float                                         DamageResistanceMultiplier;                        // 0x0008(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PostArmorDamageMultiplier;                         // 0x000C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FDamageMultipliers) == 0x000001, "Wrong alignment on FDamageMultipliers");
-static_assert(sizeof(FDamageMultipliers) == 0x000010, "Wrong size on FDamageMultipliers");
-static_assert(offsetof(FDamageMultipliers, BaseDamageMultiplier) == 0x000000, "Member 'FDamageMultipliers::BaseDamageMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageMultipliers, DamageThresholdMultiplier) == 0x000004, "Member 'FDamageMultipliers::DamageThresholdMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageMultipliers, DamageResistanceMultiplier) == 0x000008, "Member 'FDamageMultipliers::DamageResistanceMultiplier' has a wrong offset!");
-static_assert(offsetof(FDamageMultipliers, PostArmorDamageMultiplier) == 0x00000C, "Member 'FDamageMultipliers::PostArmorDamageMultiplier' has a wrong offset!");
 
 // ScriptStruct Indiana.IndianaGenericDamageEvent
 // 0x00C8 (0x00D8 - 0x0010)
@@ -12840,10 +12749,6 @@ public:
 	struct FLogicalExpression                     BaseExpression;                                    // 0x0000(0x0068)(Edit, NativeAccessSpecifierPublic)
 	TArray<struct FLogicalExpressionGroup>        AdditionalExpressions;                             // 0x0068(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FLogicalGroupedExpression) == 0x000001, "Wrong alignment on FLogicalGroupedExpression");
-static_assert(sizeof(FLogicalGroupedExpression) == 0x000078, "Wrong size on FLogicalGroupedExpression");
-static_assert(offsetof(FLogicalGroupedExpression, BaseExpression) == 0x000000, "Member 'FLogicalGroupedExpression::BaseExpression' has a wrong offset!");
-static_assert(offsetof(FLogicalGroupedExpression, AdditionalExpressions) == 0x000068, "Member 'FLogicalGroupedExpression::AdditionalExpressions' has a wrong offset!");
 
 // ScriptStruct Indiana.EncounterClearConditions
 // 0x00F8 (0x00F8 - 0x0000)
@@ -12855,11 +12760,6 @@ public:
 	float                                         KillPercentToClear;                                // 0x00F0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_19CD[0x4];                                     // 0x00F4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FEncounterClearConditions) == 0x000004, "Wrong alignment on FEncounterClearConditions");
-static_assert(sizeof(FEncounterClearConditions) == 0x0000F8, "Wrong size on FEncounterClearConditions");
-static_assert(offsetof(FEncounterClearConditions, ForceClearConditions) == 0x000000, "Member 'FEncounterClearConditions::ForceClearConditions' has a wrong offset!");
-static_assert(offsetof(FEncounterClearConditions, ClearConditions) == 0x000078, "Member 'FEncounterClearConditions::ClearConditions' has a wrong offset!");
-static_assert(offsetof(FEncounterClearConditions, KillPercentToClear) == 0x0000F0, "Member 'FEncounterClearConditions::KillPercentToClear' has a wrong offset!");
 
 // ScriptStruct Indiana.NavigationBumpSettings
 // 0x000C (0x000C - 0x0000)
@@ -13605,10 +13505,6 @@ public:
 	struct FLocString                             Tip;                                               // 0x0000(0x0008)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	struct FLogicalExpression                     Conditional;                                       // 0x0008(0x0068)(Edit, Protected, NativeAccessSpecifierProtected)
 };
-static_assert(alignof(FConditionalizedLoadingTips) == 0x000004, "Wrong alignment on FConditionalizedLoadingTips");
-static_assert(sizeof(FConditionalizedLoadingTips) == 0x000070, "Wrong size on FConditionalizedLoadingTips");
-static_assert(offsetof(FConditionalizedLoadingTips, Tip) == 0x000000, "Member 'FConditionalizedLoadingTips::Tip' has a wrong offset!");
-static_assert(offsetof(FConditionalizedLoadingTips, Conditional) == 0x000008, "Member 'FConditionalizedLoadingTips::Conditional' has a wrong offset!");
 
 // ScriptStruct Indiana.LoadingScreenRegionMaps
 // 0x0010 (0x0010 - 0x0000)
@@ -13876,12 +13772,6 @@ public:
 	struct FSphereShapeData                       SphereData;                                        // 0x0020(0x0010)(Edit, NativeAccessSpecifierPublic)
 	struct FCapsuleShapeData                      CapsuleData;                                       // 0x0030(0x0010)(Edit, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FShapeVariant) == 0x000001, "Wrong alignment on FShapeVariant");
-static_assert(sizeof(FShapeVariant) == 0x000040, "Wrong size on FShapeVariant");
-static_assert(offsetof(FShapeVariant, ShapeType) == 0x000000, "Member 'FShapeVariant::ShapeType' has a wrong offset!");
-static_assert(offsetof(FShapeVariant, BoxData) == 0x000008, "Member 'FShapeVariant::BoxData' has a wrong offset!");
-static_assert(offsetof(FShapeVariant, SphereData) == 0x000020, "Member 'FShapeVariant::SphereData' has a wrong offset!");
-static_assert(offsetof(FShapeVariant, CapsuleData) == 0x000030, "Member 'FShapeVariant::CapsuleData' has a wrong offset!");
 
 // ScriptStruct Indiana.TransformedShapeVariant
 // 0x0070 (0x0070 - 0x0000)
@@ -13922,10 +13812,6 @@ public:
 	float                                         InputTimeStamp;                                    // 0x0004(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_19F7[0x4];                                     // 0x0008(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FWeaponInputBuffer) == 0x000001, "Wrong alignment on FWeaponInputBuffer");
-static_assert(sizeof(FWeaponInputBuffer) == 0x00000C, "Wrong size on FWeaponInputBuffer");
-static_assert(offsetof(FWeaponInputBuffer, WindowTime) == 0x000000, "Member 'FWeaponInputBuffer::WindowTime' has a wrong offset!");
-static_assert(offsetof(FWeaponInputBuffer, InputTimeStamp) == 0x000004, "Member 'FWeaponInputBuffer::InputTimeStamp' has a wrong offset!");
 
 // ScriptStruct Indiana.DamageTypeRequirement
 // 0x0010 (0x0010 - 0x0000)

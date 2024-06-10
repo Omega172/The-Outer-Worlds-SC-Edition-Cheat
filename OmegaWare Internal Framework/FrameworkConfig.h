@@ -4,12 +4,11 @@
 
 #define FRAMEWORK_MAJOR_VERSION 6
 #define FRAMEWORK_MINOR_VERSION 8
-#define FRAMEWORK_REWORK_VERSION 4
+#define FRAMEWORK_REWORK_VERSION 7
 #define FRAMEWORK_VERSION FRAMEWORK_MAJOR_VERSION.FRAMEWORK_MINOR_VERSION.FRAMEWORK_REWORK_VERSION
 
 #define FRAMEWORK_CODENAME "OmegaWare"
-#define FRAMEWORK_TARGET_GAME ""
-#define FRAMEWORK_TARGET_PROCESS ""
+#define FRAMEWORK_TARGET_GAME "The Outer Worlds"
 
 // Commented these out because I'm not sure they are really necessary anymore and they are pretty annoying
 //static_assert(FRAMEWORK_TARGET_GAME != "", "Target game not set.");
@@ -30,12 +29,13 @@ static_assert((FRAMEWORK_OTHER + FRAMEWORK_UNREAL + FRAMEWORK_UNITY) == 1, "Must
 
 // Make sure a rendering API is selected and only one rendering API is selected
 #define FRAMEWORK_RENDER_DYNAMIC 0
-#define FRAMEWORK_RENDER_D3D11 1
-#define FRAMEWORK_RENDER_D3D12 0
+#define FRAMEWORK_RENDER_D3D11 0
+#define FRAMEWORK_RENDER_D3D12 1
 static_assert((FRAMEWORK_RENDER_DYNAMIC + FRAMEWORK_RENDER_D3D11 + FRAMEWORK_RENDER_D3D12) == 1, "Must use exactly one rendering API");
-static_assert(!(FRAMEWORK_RENDER_DYNAMIC || FRAMEWORK_RENDER_D3D12), "This does NOT work right now, please dont use ;3");
+//static_assert(!(FRAMEWORK_RENDER_DYNAMIC || FRAMEWORK_RENDER_D3D12), "This does NOT work right now, please dont use ;3");
 
 #ifndef FRAMEWORK_INJECTOR
+#include "Utils/Utils.h"
 
 // Unreal
 #if FRAMEWORK_UNREAL

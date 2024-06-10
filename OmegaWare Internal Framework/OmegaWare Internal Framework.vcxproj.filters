@@ -103,9 +103,11 @@
     <ClInclude Include="GUI\Watermark.h" />
     <ClInclude Include="Libs\CRC64\CRC64.h" />
     <ClInclude Include="Localization\Localization.h" />
-    <ClInclude Include="Interfaces\Unreal\SDK.h" />
+    <ClInclude Include="Localization\LocaleStructs.h" />
+    <ClInclude Include="Interfaces\Unreal\BasicTypes.h" />
     <ClInclude Include="Interfaces\Unreal\UnrealContainers.hpp" />
     <ClInclude Include="Interfaces\Unreal\PropertyFixup.hpp" />
+    <ClInclude Include="Interfaces\Unreal\SDK.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
